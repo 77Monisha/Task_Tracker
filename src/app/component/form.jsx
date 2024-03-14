@@ -1,15 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import TaskForm from "./taskform";
 
 const Form = () => {
   const [task, setTask] = useState({
     taskName: "",
-    date: "",
     day: "",
-    description: "",
+    date: "",
     startTime: "",
     endTime: "",
+    description: "",
   });
+
+  const [taskData, setTaskData] = useState([]);
 
   const handleChange = (e) => {
     setTask({
@@ -18,54 +21,168 @@ const Form = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      task.taskName.trim() === "" ||
+      task.description.trim() === "" ||
+      task.day === "" ||
+      task.startTime === "" ||
+      task.endTime === "" ||
+      task.date === ""
+    ) {
+      alert("Complete the form before submitting");
+    } else {
+      const data = { ...task, id: Date.now() };
+      setTaskData([...taskData, data]);
+      setTask({
+        taskName: "",
+        date: "",
+        day: "",
+        description: "",
+        startTime: "",
+        endTime: "",
+      });
+    }
+  };
+
+  useEffect(() => {
+    console.log(taskData);
+  }, [taskData]);
+
+  const handleDelete = (taskToDelete) => {
+    const updatedTask = taskData.filter((data) => data.id !== taskToDelete.id);
+
+    setTaskData(updatedTask);
+
+    setTask({
+      taskName: "",
+      date: "",
+      day: "",
+      description: "",
+      startTime: "",
+      endTime: "",
+    });
+  };
+
   return (
-    <div className="m-4 border-2 border-gray-500 rounded-2xl p-8">
-      <form className="flex flex-col space-y-6 flex-wraps color-black">
-        <label htmlFor="task">Task</label>
-        <input
-          type="text"
-          id="task"
-          placeholder="Enter Task Name"
-          value={task.taskName}
-          onChange={handleChange}
-        />
-        <label htmlFor="day">Day</label>
-        <div className="flex space-x-4">
-          <button>Monday</button>
-          <button>Tuesday</button>
-          <button>Wednesday</button>
-          <button>Thrusday</button>
-          <button>Friday</button>
-          <button>Saturday</button>
-          <button>Sunday</button>
+    <>
+      <div className="flex flex-wrap justify-center items-center form m-4 border-2 border-gray-500 rounded-2xl p-8">
+        <form
+          className="flex flex-col space-y-6 flex-wrap color-black"
+          onSubmit={handleSubmit}
+        >
+          <label htmlFor="task">Task</label>
+          <input
+            type="text"
+            id="taskName"
+            placeholder="Enter Task Name"
+            value={task.taskName}
+            onChange={handleChange}
+          />
+          <label htmlFor="day">Day : {task.day}</label>
+          <div className=" day_btn flex flex-wrap space-x-4">
+            <button
+              className="btn"
+              type="button"
+              onClick={() => setTask({ ...task, day: "Monday" })}
+            >
+              Monday
+            </button>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => setTask({ ...task, day: "Tuesday" })}
+            >
+              Tuesday
+            </button>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => setTask({ ...task, day: "Wednesday" })}
+            >
+              Wednesday
+            </button>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => setTask({ ...task, day: "Thrusday" })}
+            >
+              Thrusday
+            </button>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => setTask({ ...task, day: "Friday" })}
+            >
+              Friday
+            </button>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => setTask({ ...task, day: "Saturday" })}
+            >
+              Saturday
+            </button>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => setTask({ ...task, day: "Sunday" })}
+            >
+              Sunday
+            </button>
+          </div>
+          <label htmlFor="date">Date</label>
+          <input
+            type="date"
+            id="date"
+            value={task.date}
+            onChange={handleChange}
+            placeholder="Start time"
+          />
+          <label htmlFor="time">Start Time</label>
+          <input
+            type="time"
+            id="startTime"
+            value={task.startTime}
+            onChange={handleChange}
+          />
+          <label htmlFor="time">End Time</label>
+          <input
+            type="time"
+            id="endTime"
+            value={task.endTime}
+            onChange={handleChange}
+          />
+          <label htmlFor="description">Description</label>
+          <textarea
+            className="resize-none border rounded-md w-full px-3 py-2 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-300 text-center"
+            placeholder="Description"
+            id="description"
+            rows="4"
+            cols="50"
+            value={task.description}
+            onChange={handleChange}
+          ></textarea>
+          <button type="submit" className="btn">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div className="mt-20 w-full">
+        <div className="flex flex-wrap justify-center items-center mt-10">
+          <h1 className="text-4xl font-semibold text-zinc-800">Your Tasks</h1>
         </div>
-        <label htmlFor="date">Date</label>
-        <input
-          type="date"
-          id="date"
-          value={task.date}
-          onChange={handleChange}
-        />
-        <label htmlFor="time">Time</label>
-        <input
-          type="time"
-          id="start_time"
-          value={task.time}
-          onChange={handleChange}
-        />
-        <input type="time" id="end_time" />
-        <label htmlFor="description">Description</label>
-        <textarea
-          className="resize-none border rounded-md w-full px-3 py-2 placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-300 text-center"
-          placeholder="Description"
-          rows="4"
-          cols="50"
-          value={task.description}
-          onChange={handleChange}
-        ></textarea>
-        <button>Submit</button>
-      </form>
-    </div>
+
+        <div className="mt-8 p-10">
+          {taskData.map((data) => (
+            <TaskForm key={data.id} data={data} handleDelete={handleDelete} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
