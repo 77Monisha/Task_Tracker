@@ -68,7 +68,7 @@ const Form = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center items-center form m-4 border-2 border-gray-500 rounded-2xl p-8">
+      <div className="flex flex-wrap justify-center items-center form m-4 border-2 border-gray-500 rounded-2xl p-8 mb-20 h-auto">
         <form
           className="flex flex-col space-y-6 flex-wrap color-black"
           onSubmit={handleSubmit}
@@ -171,9 +171,9 @@ const Form = () => {
         </form>
       </div>
 
-      <div className="mt-20 w-full">
-        <div className="flex flex-wrap justify-center items-center mt-10">
-          <h1 className="text-4xl font-semibold text-zinc-800">Your Tasks</h1>
+      <div className="mt-60 w-full">
+        <div className="flex flex-wrap justify-center items-center mt-20">
+          <h1 className="text-5xl font-semibold text-zinc-800">Your Tasks</h1>
         </div>
 
         <div className="mt-8 p-10">

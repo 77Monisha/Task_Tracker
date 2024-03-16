@@ -105,7 +105,7 @@ input {
   padding: 20px;
   border: none;
   box-shadow: 0 34px 48px rgba(82, 82, 82, 0.7);
-  border-radius: 8px;
+  border-radius: 20px;
 }
 
 .card:hover {
@@ -114,6 +114,7 @@ input {
   font-weight: bold;
   transform: scale(1.05);
   transition: transform 0.3s ease;
+  background: linear-gradient(to right, #ffffff, #b8b7b7);
 }
 
 /* Media query for Tablets */
