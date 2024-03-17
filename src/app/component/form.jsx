@@ -66,6 +66,10 @@ const Form = () => {
     });
   };
 
+  const handleEdit = () => {
+    console.log("Edit");
+  };
+
   return (
     <>
       <div className="flex flex-wrap justify-center items-center form m-4 border-2 border-gray-500 rounded-2xl p-8 mb-20 h-auto">
@@ -171,14 +175,19 @@ const Form = () => {
         </form>
       </div>
 
-      <div className="mt-60 w-full">
+      <div className="mt-60 w-full border-2 border-zinc-400 rounded-xl">
         <div className="flex flex-wrap justify-center items-center mt-20">
           <h1 className="text-5xl font-semibold text-zinc-800">Your Tasks</h1>
         </div>
 
-        <div className="mt-8 p-10">
+        <div className="mt-24 p-10">
           {taskData.map((data) => (
-            <TaskForm key={data.id} data={data} handleDelete={handleDelete} />
+            <TaskForm
+              key={data.id}
+              data={data}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            />
           ))}
         </div>
       </div>

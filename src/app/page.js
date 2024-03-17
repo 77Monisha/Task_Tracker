@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "./component/footer";
 import Form from "./component/form";
 import Header from "./component/header";
 
@@ -23,6 +24,8 @@ export default function Home() {
         <div className="w-1/2 mt-16">
           <Form />
         </div>
+
+        <Footer />
       </main>
     </>
   );
