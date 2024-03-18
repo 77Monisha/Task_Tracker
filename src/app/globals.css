@@ -41,6 +41,38 @@ h1:hover {
   color: transparent;
 }
 
+.feature {
+  background: rgb(63 63 70);
+  border: #313030;
+}
+
+.prop_boxes span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 400px;
+  background: linear-gradient(to right, #979697, #575555);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  font-size: x-large;
+}
+
+.prop_boxes p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-wrap: wrap;
+  background-color: white;
+}
+
+.prop_boxes span:hover {
+  background: url("https://images.pexels.com/photos/4272611/pexels-photo-4272611.jpeg?auto=compress&cs=tinysrgb&w=600");
+  /* background: linear-gradient(to right, #979697, #575555); */
+  color: #575555;
+}
+
 .form {
   background-image: url("https://images.pexels.com/photos/4272611/pexels-photo-4272611.jpeg?auto=compress&cs=tinysrgb&w=600");
   border: none;

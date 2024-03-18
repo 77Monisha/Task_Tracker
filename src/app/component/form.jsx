@@ -13,7 +13,9 @@ const Form = () => {
   });
 
   const [taskData, setTaskData] = useState([]);
+  const [selectedTask, setSelectedTask] = useState(null);
 
+  // Changing the input field
   const handleChange = (e) => {
     setTask({
       ...task,
@@ -21,6 +23,7 @@ const Form = () => {
     });
   };
 
+  // Submitting the form
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -47,10 +50,6 @@ const Form = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(taskData);
-  }, [taskData]);
-
   const handleDelete = (taskToDelete) => {
     const updatedTask = taskData.filter((data) => data.id !== taskToDelete.id);
 
@@ -66,8 +65,50 @@ const Form = () => {
     });
   };
 
-  const handleEdit = () => {
-    console.log("Edit");
+  // Updating the form
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    if (
+      task.taskName.trim() === "" ||
+      task.description.trim() === "" ||
+      task.day === "" ||
+      task.startTime === "" ||
+      task.endTime === "" ||
+      task.date === ""
+    ) {
+      alert("Complete the form before submitting");
+    } else {
+      const updatedTaskData = taskData.map((data) =>
+        data.id === selectedTask.id ? { ...data, ...task } : data
+      );
+      setTaskData(updatedTaskData);
+      setSelectedTask(null);
+
+      setTask({
+        taskName: "",
+        date: "",
+        day: "",
+        description: "",
+        startTime: "",
+        endTime: "",
+      });
+    }
+  };
+
+  // Make Edits on top of previous Details
+  const handleEdit = (taskToEdit) => {
+    alert("Please go to Form for edits");
+    setSelectedTask(taskToEdit);
+
+    setTask({
+      taskName: taskToEdit.taskName,
+      date: taskToEdit.date,
+      day: taskToEdit.day,
+      description: taskToEdit.description,
+      startTime: taskToEdit.startTime,
+      endTime: taskToEdit.endTime,
+    });
   };
 
   return (
@@ -75,7 +116,7 @@ const Form = () => {
       <div className="flex flex-wrap justify-center items-center form m-4 border-2 border-gray-500 rounded-2xl p-8 mb-20 h-auto">
         <form
           className="flex flex-col space-y-6 flex-wrap color-black"
-          onSubmit={handleSubmit}
+          onSubmit={selectedTask ? handleUpdate : handleSubmit}
         >
           <label htmlFor="task">Task</label>
           <input
@@ -170,27 +211,27 @@ const Form = () => {
             onChange={handleChange}
           ></textarea>
           <button type="submit" className="btn">
-            Submit
+            {selectedTask ? "Update" : "Submit"}
           </button>
         </form>
       </div>
-
+      {/* 
       <div className="mt-60 w-full border-2 border-zinc-400 rounded-xl">
         <div className="flex flex-wrap justify-center items-center mt-20">
           <h1 className="text-5xl font-semibold text-zinc-800">Your Tasks</h1>
-        </div>
+        </div> */}
 
-        <div className="mt-24 p-10">
+      {/* <div className="mt-24 p-10">
           {taskData.map((data) => (
             <TaskForm
               key={data.id}
               data={data}
               handleDelete={handleDelete}
-              handleEdit={handleEdit}
+              onClick={() => handleEdit(data)}
             />
           ))}
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </>
   );
 };

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="header w-full bg-inherit h-16">
+    <header className="header flex flex-col flex-wrap w-full bg-inherit h-16">
       <div className="flex flex-row space-x-6 mr-20 ml-20">
         <div className="logo w-1/3">
           <Link href="/">
@@ -16,9 +16,16 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="header-link w-2/3 flex flex-row-reverse  items-center gap-40">
-          <Link href="/">Sign In</Link>
+        <div className="header-link w-1/3 flex flex-row  items-center gap-28">
+          <Link href="/">About</Link>
           <Link href="/">Posts</Link>
+          <Link href="/">Pricing</Link>
+        </div>
+
+        <div className="w-1/3 flex flex-row-reverse items-center">
+          <button className="bg-zinc-600 rounded h-12 w-20 text-white text-lg">
+            Sign In
+          </button>
         </div>
       </div>
     </header>
