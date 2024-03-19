@@ -1,8 +1,10 @@
 "use client";
 
+import Contact from "./component/contact";
 import Footer from "./component/footer";
 import Form from "./component/form";
 import Header from "./component/header";
+import Pricing from "./component/pricing";
 import Props from "./component/props";
 
 export default function Home() {
@@ -29,7 +31,16 @@ export default function Home() {
         <section className=" mt-44 mr-6 ml-6">
           <Props />
         </section>
-        <section className="w-full mt-20 ">
+
+        <section className="w-full mt-44 mr-6 ml-6">
+          <Pricing />
+        </section>
+
+        <section className="w-full mt-44 mr-6 ml-6">
+          <Contact />
+        </section>
+
+        <section className="w-full ">
           <Footer />
         </section>
       </main>

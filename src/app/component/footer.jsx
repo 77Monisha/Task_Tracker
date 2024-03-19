@@ -3,7 +3,7 @@ import { SocialIcon } from "react-social-icons";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-wrap justify-center items-center flex-col mt-40  w-full  bg-zinc-500 border-2 border-zinc-500 h-[60px] rounded-md md:text-md">
+    <footer className="flex flex-wrap justify-center items-center flex-col mt-16  w-full  bg-zinc-500 border-2 border-zinc-500 h-[60px] rounded-md md:text-md">
       <div className="w-1/3 flex justify-center items-center">
         <p className="text-white text-lg">
           &copy; 2024 Task Tracker. All Rights Reserved.
