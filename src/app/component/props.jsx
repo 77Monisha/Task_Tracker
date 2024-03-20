@@ -19,6 +19,14 @@ const Props = () => {
         <span>Search Functionality</span>
         <span>Customization Options</span>
       </div>
+      <div className="prop_boxes flex flex-row justify-center items-center gap-20 flex-wrap m-15 mt-16">
+        <span data-text="Task management">Task Management</span>
+        <span>Data Backup and Restore</span>
+        <span>User Authentication</span>
+        <span>Task Filtering and Sorting</span>
+        <span>Search Functionality</span>
+        <span>Customization Options</span>
+      </div>
     </div>
   );
 };

@@ -45,6 +45,38 @@ const Contact = () => {
           </button>
         </div>
       </div>
+      <div className="mt-28 flex flex-wrap justify-center items-center gap-6">
+        <div className="support flex-col space-y-6">
+          <h1 className="text-3xl ">Chat Support</h1>
+          <p className="text-lg">Our support team is just a click away.</p>
+          <button className="text-lg">
+            Chat now
+            <IoIosArrowForward className="inline" />
+          </button>
+        </div>
+        <div className="support flex-col space-y-6">
+          <h1 className="text-3xl ">Email Support</h1>
+          <p className="text-lg">
+            Prefer to email? Send us an email <br />
+            and we'll get back to you soon.
+          </p>
+          <button className="text-lg">
+            Send Email
+            <IoIosArrowForward className="inline" />
+          </button>
+        </div>
+        <div className="support flex-col space-y-6">
+          <h1 className="text-3xl ">Help Center</h1>
+          <p className="text-lg">
+            Our self-server help center is open
+            <br /> 24/7 with 150+ articles to help.
+          </p>
+          <button className="text-lg">
+            Visit Help Center
+            <IoIosArrowForward className="inline" />
+          </button>
+        </div>
+      </div>
 
       <div className="mt-44 flex flex-col flex-wrap justify-center items-center">
         <h2 className="text-xl">Our Support Team</h2>

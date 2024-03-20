@@ -27,6 +27,13 @@ const Header = () => {
             Sign In
           </button>
         </div>
+
+        {/* Remove this  */}
+        <div className="w-1/3 flex flex-row-reverse items-center">
+          <button className="bg-zinc-600 rounded h-12 w-24 text-white text-xl">
+            Sign In
+          </button>
+        </div>
       </div>
     </header>
   );

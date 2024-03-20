@@ -43,6 +43,11 @@ export default function Home() {
         <section className="w-full ">
           <Footer />
         </section>
+
+        {/* Remove this */}
+        <section className="w-full ">
+          <Footer />
+        </section>
       </main>
     </>
   );
