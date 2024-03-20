@@ -12,9 +12,9 @@ export default function Home() {
     <>
       <main className="flex flex-wrap ml-20 mr-20">
         <Header />
-        <div className="w-1/2 mt-16 p-8">
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="main_heading text-9xl text-center text-wrap font-extrabold text-zinc-700 mb-4 p-4  xs:text-3xl">
+        <section className="main_heading flex flex-wrap  flex-col w-1/2 mt-16 p-8">
+          <div className="flex flex-col flex-wrap justify-center items-center">
+            <h1 className="text-9xl text-center text-wrap font-extrabold text-zinc-700 mb-4 p-4 ">
               Task Tracker App
             </h1>
 
@@ -23,7 +23,7 @@ export default function Home() {
               Tasks, Master Your Time.
             </p>
           </div>
-        </div>
+        </section>
         <section className="w-1/2 mt-16">
           <Form />
         </section>
